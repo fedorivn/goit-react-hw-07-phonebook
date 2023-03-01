@@ -39,7 +39,7 @@ export default function Form() {
 
     const foundName = contacts.find(contact => contact.name === name);
     if (foundName) {
-      toast.error(`${contacts.name} is already in your contact list`);
+      toast.error(`${foundName.name } is already in your contact list`);
       return;
     }
 
