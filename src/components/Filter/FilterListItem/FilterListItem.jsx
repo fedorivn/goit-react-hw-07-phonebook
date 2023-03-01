@@ -1,9 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { deleteContact } from 'redux/contacts/contsctsSlice';
+
+// import { deleteContact } from 'redux/contacts/contsctsSlice';
 import { useDispatch} from 'react-redux';
 import { ListItem, Prompt, Button } from './FilterListItem.styled';
-import PropTypes from 'prop-types';
+import { deleteContact } from 'redux/contacts/operations';
 
 export const ContactItem = ({ name, number, id }) => {
   const dispatch = useDispatch();
@@ -11,7 +13,7 @@ export const ContactItem = ({ name, number, id }) => {
     <ListItem>
       <Prompt>{name}</Prompt>
       <Prompt>{number}</Prompt>
-      <Button type="button" onClick={() => dispatch(deleteContact({ id }))}>
+      <Button type="button" onClick={() => dispatch(deleteContact(id))}>
         Delete <DeleteIcon />
       </Button>
     </ListItem>

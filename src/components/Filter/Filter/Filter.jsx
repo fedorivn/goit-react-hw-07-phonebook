@@ -1,7 +1,7 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-import { getFilter } from 'redux/contacts/contsctsSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { getFilter } from 'redux/contacts/contsctsSlice';
+
 
 import { Container, Prompt, Input } from './Filter.styled';
 
@@ -18,7 +18,3 @@ export const Filter = () => {
   );
 };
 
-// Filter.propTypes = {
-//   value: PropTypes.string,
-//   onDeleteContacts: PropTypes.func
-// };

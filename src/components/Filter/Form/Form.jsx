@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
-import { addNewContact } from 'redux/contacts/contsctsSlice';
+// import { addNewContact } from 'redux/contacts/contsctsSlice';
+import { selectContacts } from 'redux/contacts/selectors';
+import { addNewContact } from 'redux/contacts/operations';
+
 
 import { Contacts, Label, Input, Button } from './Form.styled';
 
@@ -9,7 +12,7 @@ export default function Form() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.contacts);
+  const contacts = useSelector(selectContacts);
 
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -42,7 +45,8 @@ export default function Form() {
 
     dispatch(addNewContact({ name, number }));
     form.reset();
-
+setName('')
+setNumber('')
  
   };
 
